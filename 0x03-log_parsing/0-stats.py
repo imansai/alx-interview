@@ -18,7 +18,12 @@ def extract_input(log_entry):
         'status_code': 0,
         'file_size': 0,
     }
-    log_format = '{}\\-{}{}{}{}\\s*'.format(log_entry_pattern[0], log_entry_pattern[1], log_entry_pattern[2], log_entry_pattern[3], log_entry_pattern[4])
+    log_format = '{}\\-{}{}{}{}\\s*'.format(
+            log_entry_pattern[0],
+            log_entry_pattern[1],
+            log_entry_pattern[2],
+            log_entry_pattern[3],
+            log_entry_pattern[4])
     match_result = re.fullmatch(log_format, log_entry)
     if match_result is not None:
         http_status_code = match_result.group('status_code')
